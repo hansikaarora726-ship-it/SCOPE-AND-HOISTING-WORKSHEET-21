@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope and Hoisting Worksheet</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            max-width: 700px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #34495e;
+        }
+
+        .question {
+            background: #eef3fa;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        button {
+            background: #6489c7;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Scope and Hoisting Worksheet</h1>
+
+    <p>Predict the output of the following JavaScript concepts.</p>
+
+    <div class="question">
+        <h3>Question 1: var Hoisting</h3>
+        <p>What will be the output?</p>
+        <pre>
+console.log(a);
+var a = 10;
+        </pre>
+        <p><b>Answer:</b> undefined</p>
+        <p><b>Explanation:</b> The var declaration is hoisted to the top, but its value is assigned later.</p>
+    </div>
+
+    <div class="question">
+        <h3>Question 2: let Hoisting</h3>
+        <p>What will happen?</p>
+        <pre>
+console.log(b);
+let b = 20;
+        </pre>
+        <p><b>Answer:</b> ReferenceError</p>
+        <p><b>Explanation:</b> let is hoisted but cannot be accessed before initialization.</p>
+    </div>
+
+    <div class="question">
+        <h3>Question 3: Block Scope</h3>
+        <p>What will be the output?</p>
+        <pre>
+{
+    let x = 30;
+}
+console.log(x);
+        </pre>
+        <p><b>Answer:</b> ReferenceError</p>
+        <p><b>Explanation:</b> A let variable is accessible only inside its block.</p>
+    </div>
+
+    <div class="question">
+        <h3>Question 4: Function Scope</h3>
+        <p>What will be the output?</p>
+        <pre>
+function test() {
+    var y = 40;
+    console.log(y);
+}
+test();
+        </pre>
+        <p><b>Answer:</b> 40</p>
+        <p><b>Explanation:</b> A var variable declared inside a function is accessible within that function.</p>
+    </div>
+
+    <div class="question">
+        <h3>Question 5: const Declaration</h3>
+        <p>What will happen?</p>
+        <pre>
+const z = 50;
+z = 60;
+console.log(z);
+        </pre>
+        <p><b>Answer:</b> TypeError</p>
+        <p><b>Explanation:</b> A const variable cannot be reassigned after initialization.</p>
+    </div>
+
+    <button onclick="showResult()">Show Summary</button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+    function showResult() {
+        document.getElementById("result").innerHTML =
+            "<h3>Worksheet Completed!</h3>" +
+            "1. var Hoisting: undefined<br>" +
+            "2. let Hoisting: ReferenceError<br>" +
+            "3. Block Scope: ReferenceError<br>" +
+            "4. Function Scope: 40<br>" +
+            "5. const Declaration: TypeError";
+    }
+</script>
+
+</body>
+</html>
